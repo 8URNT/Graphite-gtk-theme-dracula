@@ -16,7 +16,7 @@ $theme_blue_color:    if($variant == 'light', #3684dd, #5294e2);
 
 @if $color_type == 'nord' {
   $theme_default_color: if($variant == 'light', #434c5e, #dbdee5);
-  $theme_purple_color:  if($variant == 'light', #b57daa, #c89dbf);
+  $theme_purple_color:  if($variant == 'light', #bd93f9, #bd93f9);
   $theme_pink_color:    if($variant == 'light', #cd7092, #dc98b1);
   $theme_red_color:     if($variant == 'light', #c35b65, #d4878f);
   $theme_orange_color:  if($variant == 'light', #d0846c, #dca493);
@@ -94,8 +94,8 @@ $theme_blue_color:    if($variant == 'light', #3684dd, #5294e2);
     } @else {
       @if ($type == 'e') { @return #292e38; }
       @if ($type == 'f') { @return #2b303b; }
-      @if ($type == 'g') { @return #313744; }
-      @if ($type == 'h') { @return #404859; }
+      @if ($type == 'g') { @return #282a36; }
+      @if ($type == 'h') { @return #44475a; }
     }
   } @else {
     @if ($type == 'a') { @return #FFFFFF; }

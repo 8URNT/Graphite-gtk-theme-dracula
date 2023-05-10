@@ -14,7 +14,7 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview672"
-     pagecolor="#404859"
+     pagecolor="#44475a"
      bordercolor="#666666"
      borderopacity="1.0"
      inkscape:pageshadow="2"
@@ -85,7 +85,7 @@
     <linearGradient
        id="color-base">
       <stop
-         stop-color="#313744"
+         stop-color="#282a36"
          offset="1"
          id="stop28" />
     </linearGradient>

@@ -50,7 +50,7 @@ make_gtkrc() {
           theme_color='#5e81ac'
           ;;
         -purple)
-          theme_color='#b57daa'
+          theme_color='#bd93f9'
           ;;
         -pink)
           theme_color='#cd7092'
@@ -144,7 +144,7 @@ make_gtkrc() {
           theme_color='#89a3c2'
           ;;
         -purple)
-          theme_color='#c89dbf'
+          theme_color='#bd93f9'
           ;;
         -pink)
           theme_color='#dc98b1'

@@ -62,7 +62,7 @@ for type in '' '-nord'; do
   if [[ "$type" == '-nord' ]]; then
     case "$theme" in
       -purple)
-        theme_color='#b57daa'
+        theme_color='#bd93f9'
         ;;
       -pink)
         theme_color='#cd7092'

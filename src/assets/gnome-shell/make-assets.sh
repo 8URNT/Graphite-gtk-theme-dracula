@@ -52,8 +52,8 @@ for theme in '' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-teal' '-
           theme_color_light='#dbdee5'
           ;;
         -purple)
-          theme_color_dark='#b57daa'
-          theme_color_light='#c89dbf'
+          theme_color_dark='#bd93f9'
+          theme_color_light='#bd93f9'
           ;;
         -pink)
           theme_color_dark='#cd7092'
@@ -91,7 +91,7 @@ for theme in '' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-teal' '-
       cp -rf "theme" "theme${theme}${type}"
       sed -i "s/#333333/${theme_color_dark}/g" "theme${theme}${type}"/*.svg
       sed -i "s/#e0e0e0/${theme_color_light}/g" "theme${theme}${type}"/*.svg
-      sed -i "s/#2c2c2c/#313744/g" "theme${theme}"/*.svg
+      sed -i "s/#2c2c2c/#282a36/g" "theme${theme}"/*.svg
     elif [[ "$theme" != '' ]]; then
       rm -rf "theme${theme}"
       cp -rf "theme" "theme${theme}"
