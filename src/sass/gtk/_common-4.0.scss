@@ -1336,6 +1336,7 @@ toolbar {
     border-radius: $corner-radius;
     box-shadow: $shadow-z4, inset 0 1px highlight($surface);
     background-color: $surface;
+    color: $text;
 
     &:backdrop { box-shadow: $shadow-z2, inset 0 1px highlight($surface); }
 
@@ -1671,8 +1672,6 @@ headerbar {
 
   &.default-decoration {
     min-height: $medium-size;
-    // padding: $space-size;
-    border-radius: $window-radius $window-radius 0 0;
 
     windowcontrols {
       button,
@@ -1695,6 +1694,10 @@ headerbar {
 
 // Gnome >= 45.0
 .top-bar {
+  box-shadow: none;
+  background: none;
+  border: none;
+
   .collapse-spacing {
     padding: 0;
   }
@@ -3726,10 +3729,36 @@ window.dialog.message { // Message Dialog styling
 
         &:not(:disabled) { color: $primary; }
 
-        // &.suggested-action:not(:disabled) { color: $suggested; }
+        &.suggested-action:not(:disabled) { color: $suggested; }
 
         &.destructive-action:not(:disabled) { color: $destructive; }
       }
+    }
+  }
+}
+
+window.background.messagedialog {
+  .response-area {
+    padding: $space-size;
+    border-spacing: $space-size;
+
+    > button {
+      @extend %button-flat;
+
+      &, &:first-child, &:last-child { border-radius: $corner-radius; }
+
+      &:not(:last-child) { margin-right: $space-size; }
+
+      &:not(:disabled) { color: $primary; }
+
+      &.suggested-action:not(:disabled) { color: $suggested; }
+
+      &.destructive-action:not(:disabled) { color: $destructive; }
+    }
+
+    > separator {
+      border: none;
+      background: none;
     }
   }
 }
@@ -4048,6 +4077,10 @@ paned {
   }
 }
 
+/****************
+ * Sidebar Pane *
+ ****************/
+
 %sidebar-style {
   background-color: $sidebg;
   color: on($sidebg);
@@ -4149,10 +4182,6 @@ paned {
   }
 }
 
-/****************
- * Sidebar Pane *
- ****************/
-
 .sidebar-pane {
   @if $variant == 'light' and $topbar == 'dark' {
     background-color: $titlebar;
@@ -4199,7 +4228,7 @@ paned {
 
         &:active { @include button(active); }
 
-        &:disabled { @include button(disabled); }
+        &:disabled { @include button(flat-disabled); }
 
         &:checked { @include button(checked); }
 
@@ -4337,7 +4366,7 @@ paned {
 
         &:active { @include button(active); }
 
-        &:disabled { @include button(disabled); }
+        &:disabled { @include button(flat-disabled); }
 
         &:checked { @include button(checked); }
 
