@@ -93,7 +93,7 @@ $theme_blue_color:    if($variant == 'light', #3684dd, #5294e2);
       @if ($type == 'h') { @return #333a47; }
     } @else {
       @if ($type == 'e') { @return #292e38; }
-      @if ($type == 'f') { @return #414558; }
+      @if ($type == 'f') { @return #21222C; }
       @if ($type == 'g') { @return #282a36; }
       @if ($type == 'h') { @return #44475a; }
     }
