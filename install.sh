@@ -14,9 +14,16 @@ themes=()
 colors=()
 sizes=()
 
+lcolors=()
+gcolors=()
+
 # Destination directory
 if [[ "$UID" -eq "$ROOT_UID" ]]; then
   DEST_DIR="/usr/share/themes"
+elif [[ -n "$XDG_DATA_HOME" ]]; then
+  DEST_DIR="$XDG_DATA_HOME/themes"
+elif [[ -d "$HOME/.local/share/themes" ]]; then
+  DEST_DIR="$HOME/.local/share/themes"
 else
   DEST_DIR="$HOME/.themes"
 fi
@@ -733,6 +740,16 @@ uninstall() {
   if [[ -d "${THEME_DIR}" ]]; then
     echo -e "Uninstall ${THEME_DIR}... "
     rm -rf "${THEME_DIR}"
+    rm -rf "${THEME_DIR}"-hdpi
+    rm -rf "${THEME_DIR}"-xhdpi
+  fi
+
+  if [[ -d "${THEME_DIR}"-hdpi ]]; then
+    rm -rf "${THEME_DIR}"-hdpi
+  fi
+
+  if [[ -d "${THEME_DIR}"-xhdpi ]]; then
+    rm -rf "${THEME_DIR}"-xhdpi
   fi
 }
 
@@ -756,13 +773,25 @@ clean_theme() {
       done
     done
   done
+
+  for theme in "${THEME_VARIANTS[@]}"; do
+    for color in "${COLOR_VARIANTS[@]}"; do
+      for size in "${SIZE_VARIANTS[@]}"; do
+        for type in '' '-nord'; do
+          uninstall "${dest:-$HOME/.themes}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size" "$type"
+        done
+      done
+    done
+  done
 }
 
 uninstall_theme() {
-  for theme in "${themes[@]}"; do
-    for color in "${colors[@]}"; do
-      for size in "${sizes[@]}"; do
-        uninstall "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size" "$ctype"
+  for theme in "${THEME_VARIANTS[@]}"; do
+    for color in "${COLOR_VARIANTS[@]}"; do
+      for size in "${SIZE_VARIANTS[@]}"; do
+        for type in '' '-nord'; do
+          uninstall "${dest:-$DEST_DIR}" "${_name:-$THEME_NAME}" "$theme" "$color" "$size" "$type"
+        done
       done
     done
   done
